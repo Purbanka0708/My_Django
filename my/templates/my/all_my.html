@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+My page
+{% endblock %}
+
+{% block content %}
+<h1>All My for you</h1>
+
+<div class='grid grid-cols-3 gap-4 m-4'>
+
+{% for my in mine %}
+   <div class="bg-green-800 p-5 rounded">
+    <img class='rounded shadow-lg' src="{{my.image.url}}" alt="">
+    <h3 class='text-2xl font-bold'>{{my.name}}</h3>
+    <a href='{% url 'my_detail' my.id %}'>
+        <button 
+        type='button'
+        class='inline-flex items-center w-[100%] justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-orange-600 hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500'>
+        {{my.type}}-{{chai.id}}
+    </button>
+</a>
+   </div>
+{% endfor  %}
+
+</div>
+
+{% endblock %}
+
